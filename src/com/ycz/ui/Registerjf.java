@@ -15,6 +15,11 @@ public class Registerjf extends JFrame {
         //设置游戏关闭模式
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+
+
+
+
+
         this.setVisible(true);
     }
 }

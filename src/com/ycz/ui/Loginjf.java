@@ -13,9 +13,11 @@ public class Loginjf extends JFrame {
         this.setAlwaysOnTop(true);
         //设置界面居中
         this.setLocationRelativeTo(null);
-
         //设置游戏关闭模式
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+
+
 
 
 
