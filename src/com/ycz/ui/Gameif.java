@@ -15,5 +15,8 @@ public class Gameif extends JFrame {
         this.setLocationRelativeTo(null);
         //设置界面可见，一般放最后
         this.setVisible(true);
+
+        //设置游戏关闭模式
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //3即关闭游戏同时关闭虚拟机，2是关闭所有界面时才关闭虚拟机
     }
 }
