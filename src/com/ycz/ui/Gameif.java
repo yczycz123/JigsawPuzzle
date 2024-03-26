@@ -1,29 +1,48 @@
 package com.ycz.ui;
 
 import javax.swing.*;
+import java.util.Random;
 
 public class Gameif extends JFrame {
+
+    //打乱数组中的元素的方法:遍历数组，得到数组中的每一个元素，拿着数组中每一个元素与随机索引进行交换
+    int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+    Random rm = new Random();
+    int[][] data = new int[4][4];
     public Gameif(){
 
         //初始化界面
         init();
-
         //初始化菜单
         initjmenu();
-
+        //打乱数据
+        initdata();
         //初始化图片
         initimage();
         //设置界面可见，一般放最后
         this.setVisible(true);
     }
 
+    private void initdata() {
+        for (int i = 0; i < arr.length; i++) {
+
+            //获取到随即索引a
+            int a = rm.nextInt(16);
+            int temp = arr[a];
+            arr[a] = arr[i];
+            arr[i] = temp;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            data[i / 4][i % 4] = arr[i];
+        }
+    }
+
     private void initimage() {
-        int number=1;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 //创建一个图片的对象
-                ImageIcon icon=new ImageIcon("D:\\study\\language\\java\\code\\JigsawPuzzle\\image\\animal\\animal3\\"+number+".jpg");
-                number++; //当number自增到16时，由于找不到路径，就会添加一个空白
+                ImageIcon icon=new ImageIcon("D:\\study\\language\\java\\code\\JigsawPuzzle\\image\\animal\\animal3\\"+data[i][j]+".jpg");
                 //创建一个管理容器的对象
                 JLabel jLabel=new JLabel(icon);
                 //指定图片放置位置
