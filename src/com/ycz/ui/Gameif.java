@@ -5,12 +5,34 @@ import javax.swing.*;
 public class Gameif extends JFrame {
     public Gameif(){
 
+        //初始化界面
         init();
 
+        //初始化菜单
         initjmenu();
 
+        //初始化图片
+        initimage();
         //设置界面可见，一般放最后
         this.setVisible(true);
+    }
+
+    private void initimage() {
+        int number=1;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                //创建一个图片的对象
+                ImageIcon icon=new ImageIcon("D:\\study\\language\\java\\code\\JigsawPuzzle\\image\\animal\\animal3\\"+number+".jpg");
+                number++; //当number自增到16时，由于找不到路径，就会添加一个空白
+                //创建一个管理容器的对象
+                JLabel jLabel=new JLabel(icon);
+                //指定图片放置位置
+                jLabel.setBounds(105*j,105*i,105,105);
+                //将图片添加进jframe中
+                this.getContentPane().add(jLabel);
+            }
+        }
+
     }
 
     public void initjmenu() {
@@ -59,5 +81,8 @@ public class Gameif extends JFrame {
         this.setLocationRelativeTo(null);
         //设置游戏关闭模式
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //3即关闭游戏同时关闭虚拟机，2是关闭所有界面时才关闭虚拟机
+
+        //取消默认的放置模式，以xy轴的放置模式添加组件
+        this.setLayout(null);
     }
 }
