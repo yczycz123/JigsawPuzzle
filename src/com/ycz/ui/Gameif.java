@@ -2,11 +2,13 @@ package com.ycz.ui;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
 
-public class Gameif extends JFrame implements KeyListener {
+public class Gameif extends JFrame implements KeyListener, ActionListener {
 
     //打乱数组中的元素的方法:遍历数组，得到数组中的每一个元素，拿着数组中每一个元素与随机索引进行交换
     int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
@@ -16,6 +18,11 @@ public class Gameif extends JFrame implements KeyListener {
     //步数
     int temp=0;
 
+
+    JMenuItem replay = new JMenuItem("重新游戏");
+    JMenuItem relogin = new JMenuItem("重新登录");
+    JMenuItem closegame = new JMenuItem("关闭游戏");
+    JMenuItem Publicaccount = new JMenuItem("公众号");
     int[][] win_data={
             {1,2,3,4},
             {5,6,7,8},
@@ -114,16 +121,15 @@ public class Gameif extends JFrame implements KeyListener {
 
 
         //创建选项下面的条目
-        JMenuItem changeimage = new JMenuItem("更换图片");
-        JMenuItem replay = new JMenuItem("重新游戏");
-        JMenuItem relogin = new JMenuItem("重新登录");
-        JMenuItem closegame = new JMenuItem("关闭游戏");
+//        JMenuItem changeimage = new JMenuItem("更换图片");
 
-
-        JMenuItem Publicaccount = new JMenuItem("公众号");
-
+        //绑定动作监听事件
+        replay.addActionListener(this);
+        relogin.addActionListener(this);
+        closegame.addActionListener(this);
+        Publicaccount.addActionListener(this);
         //将条目添加到选项中
-        functionmenu.add(changeimage);
+//        functionmenu.add(changeimage);
         functionmenu.add(replay);
         functionmenu.add(relogin);
         functionmenu.add(closegame);
@@ -252,5 +258,19 @@ public class Gameif extends JFrame implements KeyListener {
                    };
         }
         initimage();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object obj=e.getSource();
+        if(obj.equals(replay)){
+            System.out.println("重新游戏");
+        } else if (obj.equals(relogin)) {
+            System.out.println("重新登录");
+        }else if(obj.equals(closegame)){
+            System.out.println("关闭游戏");
+        }else if(obj.equals(Publicaccount)){
+            System.out.println("公众号");
+        }
     }
 }
