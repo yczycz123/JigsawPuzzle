@@ -1,15 +1,15 @@
 package com.ycz.test;
 
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Myframe2 extends JFrame implements MouseListener {
+public class Myframe3 extends JFrame implements KeyListener {
+
 
     JButton jButton1=new JButton("按钮1");
 
-    public Myframe2() {
+    public Myframe3() {
         this.setSize(603,680);
         //设置界面的标题
         this.setTitle("拼图单机版");
@@ -24,35 +24,27 @@ public class Myframe2 extends JFrame implements MouseListener {
         this.setLayout(null);
 
         jButton1.setBounds(0,0,100,100);
-        jButton1.addMouseListener(this); //因为当前类实现了ActionListener接口，故可以用this调用，这是接口的多态
+        jButton1.addKeyListener(this); //因为当前类实现了ActionListener接口，故可以用this调用，这是接口的多态
 
 
         this.add(jButton1);
         this.setVisible(true);
     }
 
+
+
     @Override
-    public void mouseClicked(MouseEvent e) {
-        System.out.println("点击");
+    public void keyTyped(KeyEvent e) {
+
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        System.out.println("按下不松");
+    public void keyPressed(KeyEvent e) {
+        System.out.println("按键按下不松");
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-        System.out.println("松开");
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        System.out.println("划入");
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        System.out.println("划出");
+    public void keyReleased(KeyEvent e) {
+        System.out.println("按键松开");
     }
 }
