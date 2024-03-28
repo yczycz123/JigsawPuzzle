@@ -269,9 +269,10 @@ public class Gameif extends JFrame implements KeyListener, ActionListener {
             initdata();
             initimage();
         } else if (obj.equals(relogin)) {
-            System.out.println("重新登录");
+            this.setVisible(false);
+            new Loginjf();
         }else if(obj.equals(closegame)){
-            System.out.println("关闭游戏");
+            System.exit(0);
         }else if(obj.equals(Publicaccount)){
             System.out.println("公众号");
         }
