@@ -264,7 +264,10 @@ public class Gameif extends JFrame implements KeyListener, ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object obj=e.getSource();
         if(obj.equals(replay)){
-            System.out.println("重新游戏");
+            //步数清零
+            temp=0;
+            initdata();
+            initimage();
         } else if (obj.equals(relogin)) {
             System.out.println("重新登录");
         }else if(obj.equals(closegame)){
