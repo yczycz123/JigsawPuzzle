@@ -45,7 +45,7 @@ public class Myframe3 extends JFrame implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        System.out.println("按键松开");
-        System.out.println(e.getKeyChar());
+        int a=e.getKeyCode();
+        System.out.println(a);
     }
 }
