@@ -1,6 +1,7 @@
 package com.ycz.ui;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.util.Random;
 
 public class Gameif extends JFrame {
@@ -39,19 +40,26 @@ public class Gameif extends JFrame {
     }
 
     private void initimage() {
+
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                //创建一个图片的对象
-                ImageIcon icon=new ImageIcon("D:\\study\\language\\java\\code\\JigsawPuzzle\\image\\animal\\animal3\\"+data[i][j]+".jpg");
+                //创建一个图片的对象，这里路径可以用相对路径，也可以用绝对路径
+                ImageIcon icon=new ImageIcon("JigsawPuzzle\\image\\animal\\animal3\\"+data[i][j]+".jpg");
                 //创建一个管理容器的对象
                 JLabel jLabel=new JLabel(icon);
                 //指定图片放置位置
-                jLabel.setBounds(105*j,105*i,105,105);
+                jLabel.setBounds(105*j+83,105*i+134,105,105);
+                //添加小图片的边框
+                jLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
                 //将图片添加进jframe中
                 this.getContentPane().add(jLabel);
             }
         }
-
+            //由于先加载的图片在上方，所以添加背景图片时最后添加
+        JLabel jLabel_back=new JLabel(new ImageIcon("JigsawPuzzle\\image\\background.png"));
+        jLabel_back.setBounds(40,40,508,560);//设置大小和放置位置
+        this.getContentPane().add(jLabel_back);
     }
 
     public void initjmenu() {
