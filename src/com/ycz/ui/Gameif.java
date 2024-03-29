@@ -274,7 +274,24 @@ public class Gameif extends JFrame implements KeyListener, ActionListener {
         }else if(obj.equals(closegame)){
             System.exit(0);
         }else if(obj.equals(Publicaccount)){
-            System.out.println("公众号");
+            //创建一个弹窗对象
+            JDialog jDialog=new JDialog();
+            //创建一个管理图片的对象jlabel
+            JLabel jLabel=new JLabel(new ImageIcon("..\\JigsawPuzzle\\image\\about.png"));
+            //设置jlabel大小
+            jLabel.setBounds(0,0,258,258);
+            //将图片添加到弹框中
+            jDialog.getContentPane().add(jLabel);
+            //设置弹窗大小
+            jDialog.setSize(430,430);
+            //让弹窗置顶
+            jDialog.setAlwaysOnTop(true);
+            //让弹窗居中
+            jDialog.setLocationRelativeTo(null);
+            //弹窗不关闭无法继续操作其他页面
+            jDialog.setModal(true);
+            //让弹窗显示
+            jDialog.setVisible(true);
         }
     }
 }
